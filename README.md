@@ -1,12 +1,12 @@
 # front-check-browser-version
 
-## Установить:
+## Installation:
 ```
 npm i -S git+ssh://git@github.com:AtlantPlatform/front-check-browser-version.git
 ```
-## Добавить в проект:
-### Через вебпак:
-Вставить в entry point
+## Add to project:
+### With webpack:
+Insert into the entry point
 ```
 module.exports = {
   context: path.resolve(__dirname, '../'),
@@ -18,8 +18,8 @@ module.exports = {
     ]
   },
 ```
-### Либо через файл инициализации vue:
-Первой строчкой:
+### With vue init file:
+Import module:
 ```
 import 'check-browser-version';
 ```
