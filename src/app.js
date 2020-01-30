@@ -1,5 +1,6 @@
-let browserUpdate = require('browser-update/update.npm.js');
-let template = require('./message.pug');
+const browserUpdate = require('browser-update/update.npm.js');
+const template = require('./message.pug');
+const isDev = process.env.NODE_ENV === 'development';
 
 let config = {
   required: {
@@ -13,16 +14,19 @@ let config = {
     vivaldi: 1.2
   },
   insecure: true, // show defailt temlate
-  test: process.env.NODE_ENV === 'development',
+  test: isDev,
   reminder: 0,
   reminderClosed: 1,
   onshow: function () {
-    // addTemplate();
+    require('./styles/overrides.scss');
+    if (isDev) {
+      // addTemplate();
+    }
   },
 };
 
 function addTemplate() {
-  require('./styles.scss');
+  require('./styles/styles.scss');
   let body = document.querySelector('body');
   let child = document.createElement('div');
   child.innerHTML = template();
